@@ -1,0 +1,72 @@
+[27-Jan-2015 18:10:15 America/Denver] PHP Notice:  Undefined variable: this_data in /home3/everpayi/public_html/docs/index.php on line 372
+[27-Jan-2015 18:15:03 America/Denver] PHP Notice:  Undefined variable: this_data in /home3/everpayi/public_html/docs/index.php on line 784
+[27-Jan-2015 18:16:16 America/Denver] PHP Notice:  Undefined variable: this_data in /home3/everpayi/public_html/docs/index.php on line 784
+[27-Jan-2015 18:17:35 America/Denver] PHP Notice:  Undefined variable: this_data in /home3/everpayi/public_html/docs/index.php on line 784
+[27-Jan-2015 18:22:32 America/Denver] PHP Notice:  Undefined variable: this_data in /home3/everpayi/public_html/docs/index.php on line 785
+[27-Jan-2015 18:23:49 America/Denver] PHP Notice:  Undefined variable: this_data in /home3/everpayi/public_html/docs/index.php on line 785
+[27-Jan-2015 18:26:17 America/Denver] PHP Notice:  Undefined variable: this_data in /home3/everpayi/public_html/docs/index.php on line 785
+[27-Jan-2015 18:27:48 America/Denver] PHP Notice:  Undefined variable: this_data in /home3/everpayi/public_html/docs/index.php on line 786
+[04-Feb-2015 19:20:32 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20121212
+These options need to match
+ in Unknown on line 0
+[04-Feb-2015 19:20:32 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20121212
+These options need to match
+ in Unknown on line 0
+[04-Feb-2015 19:20:32 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20121212
+These options need to match
+ in Unknown on line 0
+[04-Feb-2015 19:20:32 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20121212
+These options need to match
+ in Unknown on line 0
+[04-Feb-2015 19:20:32 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[04-Feb-2015 19:20:32 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20121212
+These options need to match
+ in Unknown on line 0
+[04-Feb-2015 19:20:32 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20121212
+These options need to match
+ in Unknown on line 0
+[04-Feb-2015 19:20:32 UTC] PHP Fatal error:  Directive 'allow_call_time_pass_reference' is no longer available in PHP in Unknown on line 0
+[04-Feb-2015 19:23:20 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20121212
+These options need to match
+ in Unknown on line 0
+[04-Feb-2015 19:23:20 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20121212
+These options need to match
+ in Unknown on line 0
+[04-Feb-2015 19:23:20 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20121212
+These options need to match
+ in Unknown on line 0
+[04-Feb-2015 19:23:20 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20121212
+These options need to match
+ in Unknown on line 0
+[04-Feb-2015 19:23:20 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[04-Feb-2015 19:23:20 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20121212
+These options need to match
+ in Unknown on line 0
+[04-Feb-2015 19:23:20 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20121212
+These options need to match
+ in Unknown on line 0
+[04-Feb-2015 19:23:20 UTC] PHP Fatal error:  Directive 'allow_call_time_pass_reference' is no longer available in PHP in Unknown on line 0

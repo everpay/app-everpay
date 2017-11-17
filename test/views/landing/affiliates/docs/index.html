@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Easy Affiliate Panel Documentation</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;Easy Affiliate Panel&rdquo; Documentation by &ldquo;Cruckoh&rdquo; v1.2</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;Easy Affiliate Panel&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 4/05/2014<br>
+					By: Cruckoh<br>
+					Email: <a href="mailto:cruckoh@gmail.com">cruckoh@gmail.com</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing my script. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://codecanyon.net/user/cruckoh">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+         <li><a href="#usage">Using the script</a></li>
+			<li><a href="#advanced">Advanced configuration</a></li>
+         <li><a href="#administration">Administration</a></li>
+			<li><a href="#updating">Updating</a></li>
+         <li><a href="#requirements">Requirements</a></li>
+			<li><a href="#credits">Sources and Credits</a></li>
+		</ol>
+
+      <hr>
+
+		<h3 id="usage"><strong>A) Using the script</strong> - <a href="#toc">top</a></h3>
+
+
+		<p>To start using the Easy Affiliate Panel is really easy and its explained below:</p>
+      <p><b>First</b>, copy all the files in the Script/ directory to your site<br />
+      <b>Second</b>, you need to input your mysql database credentials in file easy_affiliate.class.php on row 16-19<br />
+      <img src="assets/images/db_configuration.png" alt="Basic configuration" /><br />
+      <b>Third</b>, you must include the class file in your site, like this
+      </p>
+      <code>
+			require_once('easy_affiliate.class.php');
+      </code><br />
+      <p>This should be included in a php file on every page of your website, where a user from affiliate link can enter, <b>before any html output</b><br />
+      <p><i>Notice: the code right above and all others is php code</i></p>
+      To <b>start tracking/marking</b> a user who has come from affiliate link, you should include</p>
+      <code>$easy_affiliate->startTracking();</code><br />
+      <p><b>Notice: this function must be called before any HTML output</b><br /> You can view an example of the integration in demo_landing_page.php in /Script directory</p>
+
+      <p>This function will look for "aff=" parameter in the url and if there is, it will set a cookie for this user with this affiliate ID<br />
+      <i>Example</i><br />
+      http://your_site.com/?aff=1 <br />
+      http://your_site.com/product/213.html?aff=1 <br />
+      http://your_site.com/event/123.php?aff=1<br /><br />
+		Where "1" is the id of the affiliate 
+      </p>
+      <p>When the user <b>made a purchase</b>, in order for this purchase to be associated with the affiliate, you must include</p>
+      <code>$easy_affiliate->markBuy($id_user, $id_order, $price, $is_paid);</code><br />
+      <p>Where 
+      	<ul>
+      		<li><b>$id_user</b>: some kind of unique id of the user, integer or user ip </li>
+      		<li><b>$id_order</b>: some kind of unique id of the order, if left empty, a unique id from the page address will be generated</li>
+      		<li><b>$price</b>: what is the total sum of the order, from this price the earning for the affiliate will be calculated</li>
+      		<li><b>$is_paid</b>: if the purchase is paid right (credit card, paypal) away enter 1, if not (wire) then enter 0</li>
+   		</ul>
+      </p>
+      <p>When the <b>order is not paid right away</b>, you need to include on the page where the order is marked as paid (your admin panel for example) this code</p>
+      <code>$easy_affiliate->markBuy_admin($id_user, $id_order)</code><br />
+      <p>Where
+      <ul>
+      	<li><b>$id_user</b>: its a unique id of the user made the purchase</li>
+      	<li><b>$id_order</b>: its a unique id of the order</li>
+      </ul><br />
+      	Including this function will mark the order as paid and associated with the affiliate
+      </p>
+      <p>When you are ready setuping the functions for tracking and marking purchases, you can show the link to the affiliate panel on your site
+      <code>http://address_of_your_site/easy_affiliate.panel.php</code><br />
+      (<i>if you have included the files in the root of your site</i>)<br />
+
+      In the /Script directory, I have included two demo files with implementation<br />
+      demo_landing_page.php?aff=1 <br /> 
+      and <br />
+      demo_order_page.php <br />
+      <strong>Important:</strong> on every paid purchase, the script will check, if the affiliate has reached the minimum payout sum and if he/she has, will sent e-mail to you
+      </p>
+
+		<hr>
+		
+		<h3 id="advanced"><strong>B) Advanced configuration</strong> - <a href="#toc">top</a></h3>
+
+		<p> Easy Affiliate Panel offers an advanced configuration to be made, here are the options</p>
+      <img src="assets/images/advanced_configuration.png" alt="Advanced configuration" width="900" style="margin-left:-50px;" />
+      <ol>
+         <li><b>$easy_aff_cookie_duration</b>: when a user comes from affiliate link, a cookie is set for specific time and if the user made a purchase before this time expires, the purchase is associated with the affiliate. The time of the cookie can be set with this variable, the time is in seconds.</li>
+         <li><b>$easy_aff_percent</b>: Default percent for affialites, a custom percent can be set for each affilaite</li>
+         <li><b>$easy_aff_currency</b>: Currency of the purchases</li>
+         <li><b>$easy_aff_min_payment</b>: The minimum amount of earnings, an affiliate must made, before a payment is due</li>
+         <li><b>$logo_image</b>: For branding purposes, it will remove the logo text</li>
+         <li><b>$logo_text</b>: For branding purposes</li>
+         <li><b>$admin_user</b>: username of the admin user</li>
+         <li><b>$admin_password</b>: password of the admin user</li>
+         <li><b>$system_notification_mail</b>: this is used for "from" mail, when the script is sending notification mails</li>
+         <li><b>$admin_mail</b>: the e-mail address to which, the notification mails for an affiliate who reached the minimum payout sum, will be sent</li>
+         <li><b>$main_site_url</b>: Address of your site, if the affiliate panel is not in the root directory, if you leave it 'false' the current address will be taken</li>
+      </ol>
+      <hr>
+      <h3 id="administration"><strong>C) Administration</strong> - <a href="#toc">top</a></h3>
+      <p>The Easy Affiliate Panel gives you the option for administrating your affiliates, when you log to the panel (<i>/easy_affiliate.panel.php</i>) with 
+      your admin credentials you will see a list with the currently registered affiliates<br /> and when an affiliate has reached the minimum payout sum his/her name will be marked in the table (like affiliate with ID 1 in the example image)</p>
+      <img src="assets/images/admin_view.png" alt="Admin view" />
+      <p>You can filter the names by using the "Name:" input</p>
+      <p>If you click on the cog wheel at the right, you will see detailed information about the selected affiliate, you can change the cookie duration and percent specifically for this affiliate</p>
+      <img src="assets/images/admin_affiliate_details.png" alt="Admin Affiliate details" /><br />
+      <p>Also you can view the affiliates earnings and mark part of them as paid while leaving a comment about the payment</p>
+      <img src="assets/images/admin_affiliate_payments.png" alt="Admin Affiliate payment" />
+      <p>Also you can upload banners for your affiliates to use<br />
+      <b>Notice:</b> the name and dimensions of the banners are taken automatically</p>
+      <img src="assets/images/admin_banners.png" alt="Admin Banners page" />
+      <h3 id="updating"><strong>D) Updating</strong> - <a href="#toc">top</a></h3>
+      <p>If you are updating from version prior to <b>1.2</b>, after overwriting the old files, please run easy_affiliate_patch.php, after you have setuped the main file, located in Script/ directory </p>
+      <h3 id="requirements"><strong>E) Requirements</strong> - <a href="#toc">top</a></h3>
+      <p>There are only requirements in order to run this script are</p>
+      <ol>
+         <li>PHP version 5+</li>
+         <li>MySQL</li>
+      </ol>
+
+		<hr>
+
+		<h3 id="credits"><strong>F) Sources and Credits</strong> - <a href="#toc">top</a></h3>
+		
+		<p>I've used the scripts and libraries for the making of this panel
+		
+		<ul>
+			<li>jQuery library from http://jquery.com</li>
+			<li>Bootsrap library from http://getbootstrap.com</li>
+			<li>Datepicker plugin for Bootstrap from http://www.eyecon.ro/bootstrap-datepicker/</li>
+		</ul>
+		
+		<hr>
+		
+		<p>Once again, thank you so much for purchasing this theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this theme. No guarantees, but I'll do my best to assist. If you have a more general question relating to the scripts on Codecanyon, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p>
+		
+		<p class="append-bottom alt large"><strong>Cruckoh</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>

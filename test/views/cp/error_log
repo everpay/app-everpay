@@ -1,0 +1,2 @@
+[14-Oct-2017 12:57:56 America/Chicago] PHP Fatal error:  Using $this when not in object context in /home2/everpay/public_html/test/views/cp/emails.php on line 1
+[14-Oct-2017 14:32:35 America/Chicago] PHP Fatal error:  Using $this when not in object context in /home2/everpay/public_html/test/views/cp/emails.php on line 1
