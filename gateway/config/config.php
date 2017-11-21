@@ -14,7 +14,7 @@
 |	http://example.com/
 |
 */
-$config['base_url'] = "http://everpayinc.com/entity/business";
+$config['base_url'] = "https://everpay-commerce.herokuapp.com/";
 
 /*
 |--------------------------------------------------------------------------
