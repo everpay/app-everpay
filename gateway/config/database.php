@@ -37,7 +37,8 @@
 $active_group = "default";
 $active_record = TRUE;
 
-$db['default']['hostname'] = "108.167.191.197:3306";
+$db['default']['hostname'] = "mysql://108.167.191.197";
+$db['default']['port'] = "3306";
 $db['default']['username'] = "everpay_master";
 $db['default']['password'] = 'Parise03';
 $db['default']['database'] = "everpay_engine";
